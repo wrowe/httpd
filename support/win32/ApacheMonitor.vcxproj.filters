@@ -2,9 +2,29 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{49b2e073-b6fc-4556-8223-c73e6bb7e44d}</UniqueIdentifier>
+      <UniqueIdentifier>{a2c7a673-c8fb-44c4-8d1a-f0f4db0b78b6}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="apache_header.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ApacheMonitor.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="aprun.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="apstop.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="srun.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="sstop.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ApacheMonitor.c" />
@@ -14,25 +34,5 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ApacheMonitor.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="apache_header.bmp">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="ApacheMonitor.ico">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="aprun.ico">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="apstop.ico">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="srun.bmp">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="sstop.bmp">
-      <Filter>Resource Files</Filter>
-    </CustomBuild>
   </ItemGroup>
 </Project>

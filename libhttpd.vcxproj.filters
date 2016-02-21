@@ -2,23 +2,23 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="headers">
-      <UniqueIdentifier>{90303835-a24a-43ba-92ff-ee638f2c7c85}</UniqueIdentifier>
+      <UniqueIdentifier>{382d611c-b6f7-4670-9276-ce9c69cd77e8}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;rc;def;r;odl;hpj;bat;for;f90</Extensions>
     </Filter>
     <Filter Include="httpd">
-      <UniqueIdentifier>{54ed496f-a7aa-4e2e-b4f4-1d98400fd4a2}</UniqueIdentifier>
+      <UniqueIdentifier>{7e70c484-6dfb-49e0-bed7-589bbea39976}</UniqueIdentifier>
     </Filter>
     <Filter Include="modules">
-      <UniqueIdentifier>{1f5e81d8-2121-4fca-a219-92b0b50e4095}</UniqueIdentifier>
+      <UniqueIdentifier>{46e5c646-94fd-449f-a400-ac0184cc4c2a}</UniqueIdentifier>
     </Filter>
     <Filter Include="util">
-      <UniqueIdentifier>{cb19ecc9-362b-41e8-8584-281e3aefeb6c}</UniqueIdentifier>
+      <UniqueIdentifier>{08dc6d67-0c8e-4f98-a55c-19e42a5cf350}</UniqueIdentifier>
     </Filter>
     <Filter Include="mpm_winnt">
-      <UniqueIdentifier>{fc821a45-3b17-4f74-b117-0f2690f88040}</UniqueIdentifier>
+      <UniqueIdentifier>{1309c3d2-49e3-48ac-8850-827c45c30f1c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Generated Files">
-      <UniqueIdentifier>{d87a49d0-0496-4ee0-b521-693fb401f72a}</UniqueIdentifier>
+      <UniqueIdentifier>{c5d71b07-2d96-442e-a67a-3b2fe1635de1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

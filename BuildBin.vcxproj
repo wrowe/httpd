@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,16 +18,20 @@
     <SccProjectName />
     <SccLocalPath />
     <Keyword>MakeFileProj</Keyword>
+    <ProjectGuid>{11A49305-1768-4DEB-B661-9795E2EF1E59}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -62,18 +66,420 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="Browse\httpd.bsc" />
-    <CustomBuild Include="os\win32\BaseAddr.ref">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="CHANGES">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="Makefile.win">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="STATUS">
-      <FileType>Document</FileType>
-    </CustomBuild>
+    <CustomBuild Include="CHANGES" />
+    <CustomBuild Include="Makefile.win" />
+    <CustomBuild Include="os\win32\BaseAddr.ref" />
+    <CustomBuild Include="STATUS" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="httpd.vcxproj">
+      <Project>{0354ed91-c65f-409b-866b-fa4f10b3dd00}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_access_compat.vcxproj">
+      <Project>{3274dcc6-f647-448f-9705-aee03a709d5b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_allowhandlers.vcxproj">
+      <Project>{5885c890-8141-4787-89d2-ff6d232daea0}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_allowmethods.vcxproj">
+      <Project>{53c413fa-0015-42ce-a479-3296746d0200}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authnz_fcgi.vcxproj">
+      <Project>{18a16c96-9619-4452-acd6-fb81da811070}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authn_anon.vcxproj">
+      <Project>{3d966e6a-f063-4123-888a-472eef33b18d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authn_core.vcxproj">
+      <Project>{f5f94657-9b3b-4afc-83fc-7f36a8b9f817}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authn_dbd.vcxproj">
+      <Project>{d4b96001-9837-45cc-bd6b-0b8d4693a257}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authn_dbm.vcxproj">
+      <Project>{dab52ec7-801f-4cd3-a49a-16d032943fab}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authn_file.vcxproj">
+      <Project>{93a40d98-7fe9-458e-8877-1087f30129be}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authn_socache.vcxproj">
+      <Project>{5112ffa6-28e1-4b9d-8ce4-6f53c8e5ff9e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authz_core.vcxproj">
+      <Project>{918f9cb7-f253-420d-b667-4ea0d291d269}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authz_dbd.vcxproj">
+      <Project>{3f1c53c5-5770-42a8-8b88-8c1182bcbd31}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authz_dbm.vcxproj">
+      <Project>{bb95c244-df0f-4642-aeab-e4fcc733dda8}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authz_groupfile.vcxproj">
+      <Project>{42a62fc0-ab88-4864-8c54-d7d6c5ddca30}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authz_host.vcxproj">
+      <Project>{42f097a7-63fb-4370-82cb-355018d4a9aa}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authz_owner.vcxproj">
+      <Project>{dccac5e5-ffe4-4709-bcc1-8d1ebcb4ffb9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_authz_user.vcxproj">
+      <Project>{2b02d7a6-f0b2-4ab3-b797-4319dff92d29}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_auth_basic.vcxproj">
+      <Project>{6ba8af3d-cea5-4c71-bdcd-adb597277a6d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_auth_digest.vcxproj">
+      <Project>{15483c5d-2d1d-47fd-9350-83f56ce17113}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\aaa\mod_auth_form.vcxproj">
+      <Project>{5ea3d0dc-33f2-4097-9f97-7d51fa096ac6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\arch\win32\mod_isapi.vcxproj">
+      <Project>{c5134eb5-3abe-4993-a52b-f629feb9f7eb}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\cache\mod_cache_disk.vcxproj">
+      <Project>{8f8ca834-3221-409e-92b2-a0f4459b9ef5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\cache\mod_cache_socache.vcxproj">
+      <Project>{ad93d105-9460-401f-b8fd-95c17db83d3e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\cache\mod_file_cache.vcxproj">
+      <Project>{02d226f0-30d0-4832-90e9-5c1e2826d463}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\cache\mod_socache_dbm.vcxproj">
+      <Project>{3b3b9dc6-c47b-4b86-a24b-cd6b451365a4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\cache\mod_socache_memcache.vcxproj">
+      <Project>{12c79895-b0e2-4445-bba6-0d79d593823f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\cache\mod_socache_shmcb.vcxproj">
+      <Project>{0d13c6e4-67c5-447a-a79a-4e05e8c7a714}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\cluster\mod_heartbeat.vcxproj">
+      <Project>{968afa85-7a8e-4805-9021-10382f6c9ae7}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\cluster\mod_heartmonitor.vcxproj">
+      <Project>{c2556f48-c6a7-48ae-a0bc-3563cf7732c2}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\core\mod_macro.vcxproj">
+      <Project>{0c88c866-69af-44a9-9190-7125bc760b57}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\dav\fs\mod_dav_fs.vcxproj">
+      <Project>{5bb56f96-915e-48b5-8a4d-6b0dd8469bd9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\dav\lock\mod_dav_lock.vcxproj">
+      <Project>{6f1e44cf-bd3f-4e60-b6ba-7bfa23caf4d4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\debugging\mod_dumpio.vcxproj">
+      <Project>{7bd3f33b-21b8-4a11-918c-6fe5d01f8dd4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_buffer.vcxproj">
+      <Project>{e8da2c50-9d63-4214-99fe-ffbaff3e1ee5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_data.vcxproj">
+      <Project>{0031e933-1e8b-432d-a42f-3296d94a999c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_ext_filter.vcxproj">
+      <Project>{4f20a242-b187-4e0d-b639-45287e790478}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_filter.vcxproj">
+      <Project>{fd046afa-3306-4a20-9cbb-d449bbad11ec}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_include.vcxproj">
+      <Project>{bc1d691d-0896-4744-b49f-e40cfd2f0433}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_ratelimit.vcxproj">
+      <Project>{b4d41bee-331b-494a-b1fd-c255c8d6ae2f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_reflector.vcxproj">
+      <Project>{a794946f-b517-42df-b624-53c8bb2070d5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_reqtimeout.vcxproj">
+      <Project>{ee6da6b1-eea1-4bc3-957c-3df8d6ea8e92}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_request.vcxproj">
+      <Project>{6e1b97f8-c5b7-4a2b-9c9b-669294370165}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_sed.vcxproj">
+      <Project>{d5d0a2f8-869f-4815-ac2e-bcc0c3350fab}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\filters\mod_substitute.vcxproj">
+      <Project>{f4810f7b-55df-4d60-b5ae-f51a480b0a38}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\generators\mod_asis.vcxproj">
+      <Project>{10c0daa4-1bfe-456c-9419-2539099f9f75}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\generators\mod_autoindex.vcxproj">
+      <Project>{8ddc3584-a160-47d6-87ec-6857e25b013c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\generators\mod_cgi.vcxproj">
+      <Project>{06ed0a79-0288-44b6-926c-6b57bb65d610}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\generators\mod_info.vcxproj">
+      <Project>{e90dd9b0-7011-4358-ad5c-84f0ae577c4e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\generators\mod_status.vcxproj">
+      <Project>{f959727a-1a86-40ce-b051-14bfe215d12e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\http\mod_mime.vcxproj">
+      <Project>{27270304-4adf-413e-9244-266dd35af536}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\loggers\mod_logio.vcxproj">
+      <Project>{7db5044b-60a7-4170-87e5-486b76c8d40c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\loggers\mod_log_config.vcxproj">
+      <Project>{00f72cc3-e05b-46bc-a4eb-d72e3ae60574}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\loggers\mod_log_debug.vcxproj">
+      <Project>{763d1dc0-7158-47a3-a1e1-742aceaf2580}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\loggers\mod_log_forensic.vcxproj">
+      <Project>{dcc64264-8a76-40d3-bee8-77766868f02c}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\mappers\mod_actions.vcxproj">
+      <Project>{40464dd5-91c8-4bab-929b-493f0b93e9e9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\mappers\mod_alias.vcxproj">
+      <Project>{52255ad2-9353-41f8-9119-b6528a646db4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\mappers\mod_dir.vcxproj">
+      <Project>{853a471c-e640-4ecc-9981-590f79af8681}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\mappers\mod_imagemap.vcxproj">
+      <Project>{5861579b-5f7e-4327-942a-0501d2bb3f1e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\mappers\mod_negotiation.vcxproj">
+      <Project>{e4d3750c-ca3c-404d-b708-80e461bec688}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\mappers\mod_rewrite.vcxproj">
+      <Project>{cf04b7d7-dc15-4174-8a56-8241983b75f9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\mappers\mod_speling.vcxproj">
+      <Project>{f85223d8-307a-4f38-8729-1642343a2afb}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\mappers\mod_userdir.vcxproj">
+      <Project>{d7b90595-975a-489e-8c70-f783acbeee56}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\mappers\mod_vhost_alias.vcxproj">
+      <Project>{bb76f6f2-b168-421a-83b3-839d52d0937d}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_cern_meta.vcxproj">
+      <Project>{30152daf-f5b4-4415-94bb-cc425997edd3}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_env.vcxproj">
+      <Project>{54dbcb9e-2656-4e5b-83e6-5e1d7bbc1dc4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_expires.vcxproj">
+      <Project>{cef2bb2d-c5fe-4cbb-bcc9-b5a4496bd2d4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_headers.vcxproj">
+      <Project>{20252968-7e02-4a16-9cff-f4689c1c2350}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_ident.vcxproj">
+      <Project>{51497823-fa49-4a76-a963-c91eeb496838}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_mime_magic.vcxproj">
+      <Project>{ce051436-66ca-4902-9552-5d579dfc2b30}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_remoteip.vcxproj">
+      <Project>{1416fa8d-c220-4157-9018-9bfe630cb41e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_setenvif.vcxproj">
+      <Project>{816a5321-40d0-40df-913b-d9f50a403975}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_unique_id.vcxproj">
+      <Project>{8ae74abe-ecda-4d28-ba08-6a1d42c30f0b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_usertrack.vcxproj">
+      <Project>{e4ba220d-a1b6-4d1d-9ec6-e89bdebedab6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\metadata\mod_version.vcxproj">
+      <Project>{e8d18353-e164-4b9b-8627-b59c69f7330f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\balancers\mod_lbmethod_bybusyness.vcxproj">
+      <Project>{22eb6082-8d18-4c18-9af8-b7ea719f3cec}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\balancers\mod_lbmethod_byrequests.vcxproj">
+      <Project>{504e8221-0e80-4343-90b8-b1e289d1b6cb}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\balancers\mod_lbmethod_bytraffic.vcxproj">
+      <Project>{f5e8261f-27ef-4411-bb20-0e7a2bd10422}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\balancers\mod_lbmethod_heartbeat.vcxproj">
+      <Project>{b7d8c066-6085-4bff-92e1-854260d579de}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\mod_proxy_ajp.vcxproj">
+      <Project>{76a487a7-5a25-4bcc-8f08-4917846b113b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\mod_proxy_balancer.vcxproj">
+      <Project>{e82d8822-e926-4b29-9c74-1006f8a10415}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\mod_proxy_connect.vcxproj">
+      <Project>{ac19e2ac-6177-49cc-870f-1f927cae7a01}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\mod_proxy_express.vcxproj">
+      <Project>{c3c51638-82b0-44d8-a36d-b98b094204d4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\mod_proxy_fcgi.vcxproj">
+      <Project>{5307ad0c-40eb-4a57-bd50-75bcf672f35b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\mod_proxy_ftp.vcxproj">
+      <Project>{5ed50267-0f61-4dd6-8c66-414a943f60ab}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\mod_proxy_http.vcxproj">
+      <Project>{f83398b3-9ef1-4268-a5a2-33434c91dc4f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\mod_proxy_scgi.vcxproj">
+      <Project>{b612db79-4547-4311-b494-30c04632fe3f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\mod_proxy_wstunnel.vcxproj">
+      <Project>{d1aa030d-555c-448f-8a2f-3885d56c691b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\session\mod_session_cookie.vcxproj">
+      <Project>{fd29ddae-d25c-4064-96c7-23d406f5a632}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\session\mod_session_dbd.vcxproj">
+      <Project>{27e87372-7f3b-432e-855f-8fda5528f446}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\slotmem\mod_slotmem_plain.vcxproj">
+      <Project>{57e94c12-d19f-4de4-b408-5201a3335196}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\slotmem\mod_slotmem_shm.vcxproj">
+      <Project>{c82125e2-243c-468b-a62a-3bab46d333c2}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="support\ab.vcxproj">
+      <Project>{0ed4c37a-53ad-4443-829f-0b64debffc01}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="support\htcacheclean.vcxproj">
+      <Project>{45d3c4bb-687f-4872-96ae-442840ebf254}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="support\htdbm.vcxproj">
+      <Project>{3186889d-bd25-40b8-a78d-29617da2820e}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="support\htdigest.vcxproj">
+      <Project>{f7ef25e6-da47-4ae3-889f-e4a7d428f4c5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="support\htpasswd.vcxproj">
+      <Project>{9692d342-fa9b-44f6-9c37-dfc77f3d8cc8}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="support\httxt2dbm.vcxproj">
+      <Project>{845c06b4-09f6-495f-80a9-3e3c05b6f631}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="support\logresolve.vcxproj">
+      <Project>{8489f79e-c0b2-4b6f-a009-8bdbbecd4bc2}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="support\rotatelogs.vcxproj">
+      <Project>{af9b41d5-4558-4503-9ae5-349ef86f385b}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="support\win32\ApacheMonitor.vcxproj">
+      <Project>{d2425a63-adf0-4673-a086-bbc5e82c8d16}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="support\win32\wintty.vcxproj">
+      <Project>{702e5138-e176-4b31-9540-318da0da9174}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -21,21 +21,26 @@
   <PropertyGroup Label="Globals">
     <SccProjectName />
     <SccLocalPath />
+    <ProjectGuid>{FF0873A8-C976-4A0A-9410-0AC14677BF93}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Lexical|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -128,7 +133,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Lexical|Win32'">
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <Optimization>MaxSpeed</Optimization>
@@ -183,7 +188,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <Optimization>MaxSpeed</Optimization>
@@ -239,8 +244,12 @@
     <ClInclude Include="include\ap_compat.h" />
     <ClInclude Include="include\ap_config.h" />
     <ClInclude Include="include\ap_expr.h" />
+    <ClInclude Include="include\ap_listen.h" />
     <ClInclude Include="include\ap_mmn.h" />
+    <ClInclude Include="include\ap_regex.h" />
+    <ClInclude Include="include\ap_regkey.h" />
     <ClInclude Include="include\ap_release.h" />
+    <ClInclude Include="include\httpd.h" />
     <ClInclude Include="include\http_config.h" />
     <ClInclude Include="include\http_connection.h" />
     <ClInclude Include="include\http_core.h" />
@@ -249,24 +258,27 @@
     <ClInclude Include="include\http_protocol.h" />
     <ClInclude Include="include\http_request.h" />
     <ClInclude Include="include\http_vhost.h" />
-    <ClInclude Include="include\httpd.h" />
-    <CustomBuild Include="os\win32\win32_config_layout.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\os\win32\win32_config_layout.h &gt; .\include\ap_config_layout.h</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating include/ap_config_layout.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\include\ap_config_layout.h;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">type .\os\win32\win32_config_layout.h &gt; .\include\ap_config_layout.h</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating include/ap_config_layout.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\include\ap_config_layout.h;%(Outputs)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="modules\generators\mod_cgi.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\modules\generators\mod_cgi.h &gt; .\include\mod_cgi.h</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating include/mod_cgi.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\include\mod_cgi.h;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">type .\modules\generators\mod_cgi.h &gt; .\include\mod_cgi.h</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating include/mod_cgi.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\include\mod_cgi.h;%(Outputs)</Outputs>
-    </CustomBuild>
     <ClInclude Include="include\mod_core.h" />
+    <ClInclude Include="include\mpm_common.h" />
+    <ClInclude Include="include\scoreboard.h" />
+    <ClInclude Include="include\util_cfgtree.h" />
+    <ClInclude Include="include\util_charset.h" />
+    <ClInclude Include="include\util_ebcdic.h" />
+    <ClInclude Include="include\util_fcgi.h" />
+    <ClInclude Include="include\util_filter.h" />
+    <ClInclude Include="include\util_md5.h" />
+    <ClInclude Include="include\util_mutex.h" />
+    <ClInclude Include="include\util_script.h" />
+    <ClInclude Include="include\util_varbuf.h" />
+    <ClInclude Include="include\util_xml.h" />
+    <CustomBuild Include="modules\core\mod_so.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\modules\core\mod_so.h &gt; .\include\mod_so.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating include/mod_so.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\include\mod_so.h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">type .\modules\core\mod_so.h &gt; .\include\mod_so.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating include/mod_so.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\include\mod_so.h;%(Outputs)</Outputs>
+    </CustomBuild>
     <CustomBuild Include="modules\dav\main\mod_dav.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\modules\dav\main\mod_dav.h &gt; .\include\mod_dav.h</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating include/mod_dav.h</Message>
@@ -283,6 +295,14 @@
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating include/mod_include.h</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\include\mod_include.h;%(Outputs)</Outputs>
     </CustomBuild>
+    <CustomBuild Include="modules\generators\mod_cgi.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\modules\generators\mod_cgi.h &gt; .\include\mod_cgi.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating include/mod_cgi.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\include\mod_cgi.h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">type .\modules\generators\mod_cgi.h &gt; .\include\mod_cgi.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating include/mod_cgi.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\include\mod_cgi.h;%(Outputs)</Outputs>
+    </CustomBuild>
     <CustomBuild Include="modules\proxy\mod_proxy.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\modules\proxy\mod_proxy.h &gt; .\include\mod_proxy.h</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating include/mod_proxy.h</Message>
@@ -290,14 +310,6 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">type .\modules\proxy\mod_proxy.h &gt; .\include\mod_proxy.h</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating include/mod_proxy.h</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\include\mod_proxy.h;%(Outputs)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="modules\core\mod_so.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\modules\core\mod_so.h &gt; .\include\mod_so.h</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating include/mod_so.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\include\mod_so.h;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">type .\modules\core\mod_so.h &gt; .\include\mod_so.h</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating include/mod_so.h</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\include\mod_so.h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="os\win32\os.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\os\win32\os.h &gt; .\include\os.h</Command>
@@ -307,52 +319,33 @@
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating include/os.h</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\include\os.h;%(Outputs)</Outputs>
     </CustomBuild>
-    <ClInclude Include="server\test_char.h" />
-    <ClInclude Include="include\ap_regex.h" />
-    <ClInclude Include="include\util_cfgtree.h" />
-    <ClInclude Include="include\util_charset.h" />
-    <ClInclude Include="server\util_cookies.h" />
-    <ClInclude Include="include\util_ebcdic.h" />
-    <ClInclude Include="server\util_expr_private.h" />
-    <ClInclude Include="server\util_expr_scan.h" />
-    <ClInclude Include="server\util_expr_parse.h" />
-    <ClInclude Include="include\util_fcgi.h" />
-    <ClInclude Include="include\util_filter.h" />
-    <ClInclude Include="include\util_md5.h" />
-    <ClInclude Include="include\util_mutex.h" />
-    <ClInclude Include="include\util_script.h" />
-    <ClInclude Include="include\util_varbuf.h" />
-    <ClInclude Include="include\util_xml.h" />
-    <ClInclude Include="include\ap_listen.h" />
-    <ClInclude Include="include\ap_regkey.h" />
-    <ClInclude Include="include\mpm_common.h" />
+    <CustomBuild Include="os\win32\win32_config_layout.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\os\win32\win32_config_layout.h &gt; .\include\ap_config_layout.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating include/ap_config_layout.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\include\ap_config_layout.h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">type .\os\win32\win32_config_layout.h &gt; .\include\ap_config_layout.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating include/ap_config_layout.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\include\ap_config_layout.h;%(Outputs)</Outputs>
+    </CustomBuild>
     <ClInclude Include="server\mpm\winnt\mpm_default.h" />
     <ClInclude Include="server\mpm\winnt\mpm_winnt.h" />
-    <ClInclude Include="include\scoreboard.h" />
+    <ClInclude Include="server\test_char.h" />
+    <ClInclude Include="server\util_cookies.h" />
+    <ClInclude Include="server\util_expr_parse.h" />
+    <ClInclude Include="server\util_expr_private.h" />
+    <ClInclude Include="server\util_expr_scan.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="server\buildmark.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    <ClCompile Include="modules\arch\win32\mod_win32.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Lexical|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="modules\core\mod_so.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="modules\http\byterange_filter.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="modules\http\chunk_filter.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\config.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\connection.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\core.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\core_filters.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="modules\http\http_core.c">
@@ -370,25 +363,31 @@
     <ClCompile Include="modules\http\http_request.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="server\log.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\protocol.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\request.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\vhost.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="modules\core\mod_so.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="modules\arch\win32\mod_win32.c">
+    <ClCompile Include="os\win32\ap_regkey.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="os\win32\modules.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="os\win32\util_win32.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\buildmark.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Lexical|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="server\config.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\connection.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\core.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\core_filters.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="server\eoc_bucket.c">
@@ -398,6 +397,39 @@
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="server\error_bucket.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\listen.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\log.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\mpm\winnt\child.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\mpm\winnt\mpm_winnt.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\mpm\winnt\nt_eventlog.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\mpm\winnt\service.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\mpm_common.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\protocol.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\provider.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\request.c">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="server\scoreboard.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="server\util.c">
@@ -412,10 +444,10 @@
     <ClCompile Include="server\util_expr_eval.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="server\util_expr_scan.c">
+    <ClCompile Include="server\util_expr_parse.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="server\util_expr_parse.c">
+    <ClCompile Include="server\util_expr_scan.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
     <ClCompile Include="server\util_fcgi.c">
@@ -442,43 +474,15 @@
     <ClCompile Include="server\util_time.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="os\win32\util_win32.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
     <ClCompile Include="server\util_xml.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="os\win32\ap_regkey.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\mpm\winnt\child.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\listen.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\mpm_common.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\mpm\winnt\mpm_winnt.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\mpm\winnt\nt_eventlog.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\provider.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\scoreboard.c">
-      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
-    </ClCompile>
-    <ClCompile Include="server\mpm\winnt\service.c">
+    <ClCompile Include="server\vhost.c">
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"> /EHsc   /EHsc </AdditionalOptions>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="server\gen_test_char.exe">
-      <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\server\gen_test_char.exe &gt;.\server\test_char.h</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generating test_char.h from gen_test_char.exe</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\server\test_char.h;%(Outputs)</Outputs>
@@ -493,7 +497,6 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\include\os.h;%(AdditionalInputs)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="server\util_expr_parse.y">
-      <FileType>Document</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <Command Condition="'$(Configuration)|$(Platform)'=='Lexical|Win32'">bison -pap_expr_yy --defines=.\server\util_expr_parse.h -o .\server\util_expr_parse.c .\server\util_expr_parse.y</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Lexical|Win32'">Generating util_expr_parse.c/.h from util_expr_parse.y</Message>
@@ -501,7 +504,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </CustomBuild>
     <CustomBuild Include="server\util_expr_scan.l">
-      <FileType>Document</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <Command Condition="'$(Configuration)|$(Platform)'=='Lexical|Win32'">flex -Pap_expr_yy -o .\server\util_expr_scan.c .\server\util_expr_scan.l</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Lexical|Win32'">Generating util_expr_scan.c from util_expr_scan.l</Message>
@@ -515,6 +517,20 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Lexical|Win32'">build\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">build\win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="server\gen_test_char.vcxproj">
+      <Project>{730005cd-9c47-4299-bba9-8988ef603231}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="srclib\apr\libapr.vcxproj">
+      <Project>{9ae31231-d1e1-4192-b610-065db3a059cc}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="srclib\pcre\pcre.vcxproj">
+      <Project>{e565fd0e-8635-4d2d-afe6-f39bca2229b7}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

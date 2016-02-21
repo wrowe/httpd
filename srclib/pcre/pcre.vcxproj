@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -17,17 +17,21 @@
   <PropertyGroup Label="Globals">
     <SccProjectName />
     <SccLocalPath />
+    <ProjectGuid>{E565FD0E-8635-4D2D-AFE6-F39BCA2229B7}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -48,10 +52,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>.\LibD\</OutDir>
     <IntDir>.\LibD\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>.\LibR\</OutDir>
     <IntDir>.\LibR\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -83,7 +89,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <Optimization>MaxSpeed</Optimization>
@@ -108,17 +114,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="dftables.exe">
-      <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\dftables.exe chartables.c </Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating pcre chartables.c from dftables</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\chartables.c;%(Outputs)</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\dftables.exe chartables.c </Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating pcre chartables.c from dftables</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\chartables.c;%(Outputs)</Outputs>
-    </CustomBuild>
     <CustomBuild Include="config.hw">
-      <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\config.hw &gt; .\config.h</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating pcre config.h from config.hw</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\config.h;%(Outputs)</Outputs>
@@ -126,8 +122,15 @@
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating pcre config.h from config.hw</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\config.h;%(Outputs)</Outputs>
     </CustomBuild>
+    <CustomBuild Include="dftables.exe">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\dftables.exe chartables.c </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating pcre chartables.c from dftables</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\chartables.c;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\dftables.exe chartables.c </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating pcre chartables.c from dftables</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\chartables.c;%(Outputs)</Outputs>
+    </CustomBuild>
     <CustomBuild Include="pcre.hw">
-      <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">type .\pcre.hw &gt; .\pcre.h</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating pcre.h from pcre.hw</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\pcre.h;%(Outputs)</Outputs>
@@ -152,6 +155,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="internal.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="dftables.vcxproj">
+      <Project>{45fda091-03b2-48fc-98a1-6ce761683fca}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

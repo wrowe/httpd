@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,16 +18,20 @@
     <SccProjectName />
     <SccLocalPath />
     <Keyword>MakeFileProj</Keyword>
+    <ProjectGuid>{5A396540-DBFA-4122-96D3-35F2877266DC}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -62,18 +66,44 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="Browse\httpd.bsc" />
-    <CustomBuild Include="os\win32\BaseAddr.ref">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="CHANGES">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="Makefile.win">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="STATUS">
-      <FileType>Document</FileType>
-    </CustomBuild>
+    <CustomBuild Include="CHANGES" />
+    <CustomBuild Include="Makefile.win" />
+    <CustomBuild Include="os\win32\BaseAddr.ref" />
+    <CustomBuild Include="STATUS" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="BuildBin.vcxproj">
+      <Project>{11a49305-1768-4deb-b661-9795e2ef1e59}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\debugging\mod_bucketeer.vcxproj">
+      <Project>{656e517d-eb3f-4805-9ee3-764657436721}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\echo\mod_echo.vcxproj">
+      <Project>{fa32bdd5-eb25-45fa-93fd-9c73fc8ab730}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\examples\mod_case_filter.vcxproj">
+      <Project>{829ac180-c815-4bcf-b650-3c7fecd49a20}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\examples\mod_case_filter_in.vcxproj">
+      <Project>{89f0e565-b1cc-413e-9d62-cb6fc160bb34}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\examples\mod_example_hooks.vcxproj">
+      <Project>{030b70f2-3d3a-49f4-a7f0-04307f545e6a}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\examples\mod_example_ipc.vcxproj">
+      <Project>{5c7f1832-4d65-4db3-a4a5-5e9d8276964f}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="modules\proxy\examples\mod_lbmethod_rr.vcxproj">
+      <Project>{7497ce16-833d-44a3-b547-f9e29d5f35d5}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
